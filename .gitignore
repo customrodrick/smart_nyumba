@@ -35,6 +35,7 @@ bower_components
 # node-modules
 node_modules/
 jspm_packages/
+dist/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -65,6 +66,8 @@ jspm_packages/
 
 # dotenv environment variable files
 .env
+.env.*
+!.env.example
 .env.development.local
 .env.test.local
 .env.production.local

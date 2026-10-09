@@ -1,27 +1,41 @@
 /* =====================================================
    SMART NYUMBA - SMART HOME IoT DASHBOARD
    ===================================================== */
-import 'dotenv/config';
 
-/* =====================================================
-   FIREBASE IMPORTS
-   ===================================================== */
-
-import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { initializeApp } from "firebase/app";
+import {
+    createIcons,
+    Home,
+    Thermometer,
+    Droplet,
+    Sun,
+    Wind,
+    Lightbulb
+} from "lucide";
 
 import {
     getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+    // signInWithEmailAndPassword,
+    // onAuthStateChanged
+} from "firebase/auth";
 
 import {
     getDatabase,
     ref,
     onValue as rawOnValue,
     set
-} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+} from "firebase/database";
+
+createIcons({
+    icons: {
+        Home,
+        Thermometer,
+        Droplet,
+        Sun,
+        Wind,
+        Lightbulb
+    }
+});
 
 
 /* =====================================================
@@ -29,14 +43,25 @@ import {
    ===================================================== */
 
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    databaseURL: process.env.DB_URL,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID,
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    databaseURL: import.meta.env.VITE_DB_URL,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
 };
+
+const missingFirebaseConfig = Object.entries(firebaseConfig)
+    .filter(([, value]) => !value)
+    .map(([key]) => key);
+
+if (missingFirebaseConfig.length) {
+    throw new Error(
+        `Missing Firebase configuration: ${missingFirebaseConfig.join(", ")}. ` +
+        "Set the matching VITE_ variables in your local .env file or Netlify environment."
+    );
+}
 
 
 /* =====================================================
@@ -505,8 +530,10 @@ function updateOverallStatus() {
 
     if (!firebaseConnected) {
 
-        connectionDot.style.color =
+        connectionDot.style.backgroundColor =
             "#dc2626";
+        connectionDot.style.boxShadow =
+            "0 0 0 4px rgba(220, 38, 38, 0.14)";
 
         connectionText.textContent =
             "Firebase Offline";
@@ -550,8 +577,10 @@ function updateOverallStatus() {
 
     else if (!arduinoOnline) {
 
-        connectionDot.style.color =
+        connectionDot.style.backgroundColor =
             "#f59e0b";
+        connectionDot.style.boxShadow =
+            "0 0 0 4px rgba(245, 158, 11, 0.14)";
 
         connectionText.textContent =
             "Arduino Offline";
@@ -595,8 +624,10 @@ function updateOverallStatus() {
 
     else {
 
-        connectionDot.style.color =
+        connectionDot.style.backgroundColor =
             "#22c55e";
+        connectionDot.style.boxShadow =
+            "0 0 0 4px rgba(34, 197, 94, 0.14)";
 
 
         connectionText.textContent =

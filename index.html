@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMART NYUMBA</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-
-
     <!-- =================================================
          HEADER
          ================================================= -->
-    <header>
-        <h1>🏠 SMART NYUMBA</h1>
-        <p>Smart Home IoT Dashboard</p>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <div class="brand">
+                <div class="brand-icon" aria-hidden="true">
+                    <i data-lucide="home"></i>
+                </div>
+                <div class="brand-copy">
+                    <h1>SMART NYUMBA</h1>
+                    <p class="brand-description">Monitor and manage your connected home.</p>
+                </div>
+            </div>
 
-        <div class="connection-status">
-            <span id="connectionDot">●</span>
-            <span id="connectionText">Connecting...</span>
+            <div class="connection-status" role="status" aria-live="polite">
+                <span id="connectionDot" aria-hidden="true"></span>
+                <span id="connectionText">Connecting...</span>
+            </div>
         </div>
     </header>
 
@@ -36,7 +43,8 @@
 
             <div class="home-status-header">
                 <div>
-                    <h2>🏠 Home Status</h2>
+                    <!-- Replaced house emoji with lucide icon -->
+                    <h2><i data-lucide="home"></i> Home Status</h2>
                     <p>SMART NYUMBA System Overview</p>
                 </div>
 
@@ -49,7 +57,8 @@
             <div class="quick-status-grid">
 
                 <div class="quick-status-item">
-                    <span class="quick-icon">🌡️</span>
+                    <!-- Replaced emoji with thermometer icon -->
+                    <span class="quick-icon"><i data-lucide="thermometer"></i></span>
                     <div>
                         <span class="quick-label">Temperature</span>
                         <strong id="homeTemperature">-- °C</strong>
@@ -57,7 +66,8 @@
                 </div>
 
                 <div class="quick-status-item">
-                    <span class="quick-icon">💧</span>
+                    <!-- Replaced emoji with droplet icon -->
+                    <span class="quick-icon"><i data-lucide="droplet"></i></span>
                     <div>
                         <span class="quick-label">Humidity</span>
                         <strong id="homeHumidity">-- %</strong>
@@ -65,7 +75,8 @@
                 </div>
 
                 <div class="quick-status-item">
-                    <span class="quick-icon">☀️</span>
+                    <!-- Replaced emoji with sun icon -->
+                    <span class="quick-icon"><i data-lucide="sun"></i></span>
                     <div>
                         <span class="quick-label">Light</span>
                         <strong id="homeLight">--</strong>
@@ -73,7 +84,8 @@
                 </div>
 
                 <div class="quick-status-item">
-                    <span class="quick-icon">🌀</span>
+                    <!-- Replaced emoji with wind (fan) icon -->
+                    <span class="quick-icon"><i data-lucide="wind"></i></span>
                     <div>
                         <span class="quick-label">Fan</span>
                         <strong id="homeFan">OFF</strong>
@@ -81,7 +93,8 @@
                 </div>
 
                 <div class="quick-status-item">
-                    <span class="quick-icon">💡</span>
+                    <!-- Replaced emoji with lightbulb icon -->
+                    <span class="quick-icon"><i data-lucide="lightbulb"></i></span>
                     <div>
                         <span class="quick-label">Lights</span>
                         <strong id="homeLights">OFF</strong>
@@ -98,19 +111,19 @@
         <div class="sensor-grid">
 
             <div class="sensor-card">
-                <div class="sensor-icon">🌡️</div>
+                <div class="sensor-icon"><i data-lucide="thermometer"></i></div>
                 <h3>Temperature</h3>
                 <div class="sensor-value" id="temperature">-- °C</div>
             </div>
 
             <div class="sensor-card">
-                <div class="sensor-icon">💧</div>
+                <div class="sensor-icon"><i data-lucide="droplet"></i></div>
                 <h3>Humidity</h3>
                 <div class="sensor-value" id="humidity">-- %</div>
             </div>
 
             <div class="sensor-card">
-                <div class="sensor-icon">☀️</div>
+                <div class="sensor-icon"><i data-lucide="sun"></i></div>
                 <h3>Light Level</h3>
                 <div class="sensor-value" id="light">--</div>
             </div>
@@ -124,7 +137,7 @@
         <div class="device-grid">
 
             <div class="device-card" id="fanCard">
-                <div class="device-icon">🌀</div>
+                <div class="device-icon"><i data-lucide="wind"></i></div>
                 <div class="device-info">
                     <h3>Fan</h3>
                     <p id="fanStatus">OFF</p>
@@ -136,7 +149,7 @@
             </div>
 
             <div class="device-card" id="lightsCard">
-                <div class="device-icon">💡</div>
+                <div class="device-icon"><i data-lucide="lightbulb"></i></div>
                 <div class="device-info">
                     <h3>Lights</h3>
                     <p id="lightsStatus">OFF</p>
@@ -156,17 +169,17 @@
         <div class="charts-grid">
 
             <div class="chart-card">
-                <h3>🌡️ Temperature</h3>
+                <h3><i data-lucide="thermometer"></i> Temperature</h3>
                 <div class="chart-container"><canvas id="temperatureChart"></canvas></div>
             </div>
 
             <div class="chart-card">
-                <h3>💧 Humidity</h3>
+                <h3><i data-lucide="droplet"></i> Humidity</h3>
                 <div class="chart-container"><canvas id="humidityChart"></canvas></div>
             </div>
 
             <div class="chart-card">
-                <h3>☀️ Light Level</h3>
+                <h3><i data-lucide="sun"></i> Light Level</h3>
                 <div class="chart-container"><canvas id="lightChart"></canvas></div>
             </div>
 
@@ -203,8 +216,7 @@
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- SMART NYUMBA JAVASCRIPT (must be a module) -->
-    <script type="module" src="script.js"></script>
+    <script type="module" src="/script.js"></script>
 
 </body>
 

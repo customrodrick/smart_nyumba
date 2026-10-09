@@ -2,6 +2,20 @@
    GLOBAL
    ===================================================== */
 
+header h1, h2, .quick-status-item, .sensor-icon, .device-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spaces out your icon from the adjacent text */
+}
+
+svg.lucide {
+    stroke-width: 2px;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,44 +37,85 @@ body {
    HEADER
    ===================================================== */
 
-header {
-    background: #111827;
-    color: white;
-    padding: 12px 20px;
-    text-align: center;
+.site-header {
+    padding: 15px 24px;
+    color: #1f2937;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-header h1 {
-    font-size: 24px;
-    margin-bottom: 3px;
+.site-header-inner {
+    display: flex;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-header p {
+.brand {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-icon {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border: 1px solid #d5e8e2;
+    border-radius: 10px;
+    background: #edf6f3;
+    color: #28745f;
+}
+
+.brand-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.brand-copy h1 {
+    margin: 0;
+    color: #182b28;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+}
+
+.brand-description {
+    margin-top: 4px;
+    color: #6b7280;
     font-size: 12px;
-    color: #d1d5db;
 }
-
-
-/* =====================================================
-   CONNECTION
-   ===================================================== */
 
 .connection-status {
     display: flex;
-    justify-content: center;
+    min-width: 156px;
     align-items: center;
-    gap: 6px;
-    margin-top: 5px;
-    font-size: 12px;
+    gap: 9px;
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
 }
 
 #connectionDot {
-    color: #f59e0b;
-    font-size: 15px;
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: #f59e0b;
 }
 
 #connectionText {
-    color: #e5e7eb;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 
@@ -87,7 +142,6 @@ header p {
     border-radius: 12px;
     padding: 12px 15px;
     margin-bottom: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
 .home-status-header {
@@ -203,7 +257,6 @@ header p {
     border-radius: 10px;
     padding: 9px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     min-height: 90px;
     display: flex;
     flex-direction: column;
@@ -250,7 +303,6 @@ header p {
     align-items: center;
     gap: 10px;
     border: 2px solid transparent;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     transition: all 0.25s ease;
 }
 
@@ -324,7 +376,6 @@ header p {
     background-color: white;
     border-radius: 50%;
     transition: 0.25s;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .switch input:checked + .slider {
@@ -342,7 +393,6 @@ header p {
 
 .device-card.device-on {
     border-color: #22c55e;
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
 }
 
 .device-card.device-on .device-info p {
@@ -369,7 +419,6 @@ header p {
    ===================================================== */
 
 #lightsCard.device-on .device-icon {
-    filter: drop-shadow(0 0 7px #facc15);
     animation: lightGlow 1.2s ease-in-out infinite alternate;
 }
 
@@ -394,7 +443,6 @@ header p {
     background: white;
     border-radius: 10px;
     padding: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
 .chart-card h3 {
@@ -423,7 +471,6 @@ header p {
     background: white;
     border-radius: 10px;
     padding: 7px 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -554,15 +601,6 @@ footer strong {
    ===================================================== */
 
 @media (min-width: 900px) {
-
-    header {
-        padding: 9px 20px;
-    }
-
-    header h1 {
-        font-size: 21px;
-    }
-
     .container {
         margin-top: 7px;
         margin-bottom: 7px;
@@ -610,16 +648,29 @@ footer strong {
    ===================================================== */
 
 @media (max-width: 650px) {
-
-    header {
-        padding: 9px 10px;
+    .site-header {
+        padding: 17px 16px;
     }
 
-    header h1 {
-        font-size: 20px;
+    .brand {
+        gap: 11px;
     }
 
-    header p {
+    .brand-copy h1 {
+        font-size: 19px;
+    }
+
+    .brand-description {
+        font-size: 11px;
+    }
+
+    .connection-status {
+        min-width: 0;
+        gap: 9px;
+        padding: 9px 11px;
+    }
+
+    #connectionText {
         font-size: 11px;
     }
 
@@ -741,6 +792,40 @@ footer strong {
         padding: 6px;
     }
 
+}
+
+
+@media (max-width: 440px) {
+    .site-header {
+        padding: 14px 12px;
+    }
+
+    .site-header-inner {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand-copy h1 {
+        font-size: 17px;
+    }
+
+    .brand-description {
+        max-width: 190px;
+        font-size: 10px;
+    }
+
+    .connection-status {
+        gap: 7px;
+        padding: 8px;
+    }
+
+    #connectionText {
+        font-size: 10px;
+    }
 }
 
 
