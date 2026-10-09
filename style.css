@@ -24,7 +24,6 @@ svg.lucide {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
     color: #1f2937;
     min-height: 100vh;
     display: flex;
@@ -138,10 +137,10 @@ body {
    ===================================================== */
 
 .home-status-card {
-    background: white;
-    border-radius: 12px;
-    padding: 12px 15px;
-    margin-bottom: 5px;
+    background: rgb(195, 194, 194);
+    margin-bottom: 16px;
+    padding: 9px 13px;
+    border-radius: 10px;
 }
 
 .home-status-header {
@@ -185,6 +184,14 @@ body {
     font-size: 12px;
 }
 
+.sensors-section,
+.panel-section {
+    background: rgb(195, 194, 194);
+    margin-bottom: 16px;
+    padding: 9px 13px;
+    border-radius: 10px;
+}
+
 
 /* =====================================================
    QUICK STATUS GRID
@@ -200,9 +207,6 @@ body {
     display: flex;
     align-items: center;
     gap: 7px;
-    background: #f8fafc;
-    border-radius: 8px;
-    padding: 7px 8px;
     min-width: 0;
 }
 
@@ -235,7 +239,7 @@ body {
    ===================================================== */
 
 .section-title {
-    margin: 7px 0 6px 0;
+    margin: 7px 0 8px 0;
     font-size: 16px;
     color: #111827;
 }
@@ -253,12 +257,13 @@ body {
 }
 
 .sensor-card {
-    background: white;
+    background: transparent;
     border-radius: 10px;
     padding: 9px;
     text-align: center;
     min-height: 90px;
     display: flex;
+    margin-top: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -296,7 +301,7 @@ body {
 .device-card {
     width: 100%;
     min-height: 70px;
-    background: white;
+    background: transparent;
     border-radius: 10px;
     padding: 8px 16px;
     display: flex;
@@ -440,7 +445,7 @@ body {
 }
 
 .chart-card {
-    background: white;
+    background: transparent;
     border-radius: 10px;
     padding: 8px;
 }
@@ -468,7 +473,7 @@ body {
    ===================================================== */
 
 .system-card {
-    background: white;
+    background: transparent;
     border-radius: 10px;
     padding: 7px 14px;
     display: grid;

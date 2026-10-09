@@ -104,7 +104,7 @@
             </div>
         </section>
 
-
+    <div class="sensors-section">
         <!-- SENSORS -->
         <h2 class="section-title">Environmental Sensors</h2>
 
@@ -129,78 +129,83 @@
             </div>
 
         </div>
+    </div>
 
 
-        <!-- DEVICE CONTROLS -->
-        <h2 class="section-title">Device Controls</h2>
+        <div class="panel-section">
+            <!-- DEVICE CONTROLS -->
+            <h2 class="section-title">Device Controls</h2>
 
-        <div class="device-grid">
+            <div class="device-grid">
 
-            <div class="device-card" id="fanCard">
-                <div class="device-icon"><i data-lucide="wind"></i></div>
-                <div class="device-info">
-                    <h3>Fan</h3>
-                    <p id="fanStatus">OFF</p>
+                <div class="device-card" id="fanCard">
+                    <div class="device-icon"><i data-lucide="wind"></i></div>
+                    <div class="device-info">
+                        <h3>Fan</h3>
+                        <p id="fanStatus">OFF</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="fanSwitch">
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <label class="switch">
-                    <input type="checkbox" id="fanSwitch">
-                    <span class="slider"></span>
-                </label>
-            </div>
 
-            <div class="device-card" id="lightsCard">
-                <div class="device-icon"><i data-lucide="lightbulb"></i></div>
-                <div class="device-info">
-                    <h3>Lights</h3>
-                    <p id="lightsStatus">OFF</p>
+                <div class="device-card" id="lightsCard">
+                    <div class="device-icon"><i data-lucide="lightbulb"></i></div>
+                    <div class="device-info">
+                        <h3>Lights</h3>
+                        <p id="lightsStatus">OFF</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="lightsSwitch">
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <label class="switch">
-                    <input type="checkbox" id="lightsSwitch">
-                    <span class="slider"></span>
-                </label>
-            </div>
 
+            </div>
         </div>
 
+        <div class="panel-section">
+            <!-- LIVE CHARTS -->
+            <h2 class="section-title">Live Sensor Monitoring</h2>
 
-        <!-- LIVE CHARTS -->
-        <h2 class="section-title">Live Sensor Monitoring</h2>
+            <div class="charts-grid">
 
-        <div class="charts-grid">
+                <div class="chart-card">
+                    <h3><i data-lucide="thermometer"></i> Temperature</h3>
+                    <div class="chart-container"><canvas id="temperatureChart"></canvas></div>
+                </div>
 
-            <div class="chart-card">
-                <h3><i data-lucide="thermometer"></i> Temperature</h3>
-                <div class="chart-container"><canvas id="temperatureChart"></canvas></div>
+                <div class="chart-card">
+                    <h3><i data-lucide="droplet"></i> Humidity</h3>
+                    <div class="chart-container"><canvas id="humidityChart"></canvas></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3><i data-lucide="sun"></i> Light Level</h3>
+                    <div class="chart-container"><canvas id="lightChart"></canvas></div>
+                </div>
+
             </div>
-
-            <div class="chart-card">
-                <h3><i data-lucide="droplet"></i> Humidity</h3>
-                <div class="chart-container"><canvas id="humidityChart"></canvas></div>
-            </div>
-
-            <div class="chart-card">
-                <h3><i data-lucide="sun"></i> Light Level</h3>
-                <div class="chart-container"><canvas id="lightChart"></canvas></div>
-            </div>
-
         </div>
 
+        <div class="panel-section">
+            <!-- SYSTEM INFORMATION -->
+            <h2 class="section-title">System Information</h2>
 
-        <!-- SYSTEM INFORMATION -->
-        <h2 class="section-title">System Information</h2>
+            <div class="system-card">
 
-        <div class="system-card">
+                <div class="system-row">
+                    <span class="system-label">Firebase Status</span>
+                    <span class="system-value" id="firebaseStatus">Connecting...</span>
+                </div>
 
-            <div class="system-row">
-                <span class="system-label">Firebase Status</span>
-                <span class="system-value" id="firebaseStatus">Connecting...</span>
+                <div class="system-row">
+                    <span class="system-label">Last Sensor Update</span>
+                    <span class="system-value" id="lastUpdate">--</span>
+                </div>
+
             </div>
-
-            <div class="system-row">
-                <span class="system-label">Last Sensor Update</span>
-                <span class="system-value" id="lastUpdate">--</span>
-            </div>
-
         </div>
 
     </main>
