@@ -1,7 +1,7 @@
 /* =====================================================
    SMART NYUMBA - SMART HOME IoT DASHBOARD
    ===================================================== */
-
+import 'dotenv/config';
 
 /* =====================================================
    FIREBASE IMPORTS
@@ -29,13 +29,13 @@ import {
    ===================================================== */
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAE11jZXLfHYQw0N09gnJoaVH3SklYFqwE",
-    authDomain: "smart-nyumba-27bc0.firebaseapp.com",
-    databaseURL: "https://smart-nyumba-27bc0-default-rtdb.firebaseio.com",
-    projectId: "smart-nyumba-27bc0",
-    storageBucket: "smart-nyumba-27bc0.firebasestorage.app",
-    messagingSenderId: "222893340644",
-    appId: "1:222893340644:web:2d1beb17bdbabf4bb3b9f1"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DB_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
 };
 
 
