@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART NYUMBA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+    <header>
+        <h1>🏠 SMART NYUMBA</h1>
+        <p>Smart Home IoT Dashboard</p>
+
+        <div class="connection-status">
+            <span id="connectionDot">●</span>
+            <span id="connectionText">Connecting...</span>
+        </div>
+    </header>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+         ================================================= -->
+    <main class="container">
+
+        <!-- HOME STATUS -->
+        <section class="home-status-card">
+
+            <div class="home-status-header">
+                <div>
+                    <h2>🏠 Home Status</h2>
+                    <p>SMART NYUMBA System Overview</p>
+                </div>
+
+                <div class="home-status-badge" id="homeStatusBadge">
+                    <span id="homeStatusDot">●</span>
+                    <span id="homeStatusText">CONNECTING</span>
+                </div>
+            </div>
+
+            <div class="quick-status-grid">
+
+                <div class="quick-status-item">
+                    <span class="quick-icon">🌡️</span>
+                    <div>
+                        <span class="quick-label">Temperature</span>
+                        <strong id="homeTemperature">-- °C</strong>
+                    </div>
+                </div>
+
+                <div class="quick-status-item">
+                    <span class="quick-icon">💧</span>
+                    <div>
+                        <span class="quick-label">Humidity</span>
+                        <strong id="homeHumidity">-- %</strong>
+                    </div>
+                </div>
+
+                <div class="quick-status-item">
+                    <span class="quick-icon">☀️</span>
+                    <div>
+                        <span class="quick-label">Light</span>
+                        <strong id="homeLight">--</strong>
+                    </div>
+                </div>
+
+                <div class="quick-status-item">
+                    <span class="quick-icon">🌀</span>
+                    <div>
+                        <span class="quick-label">Fan</span>
+                        <strong id="homeFan">OFF</strong>
+                    </div>
+                </div>
+
+                <div class="quick-status-item">
+                    <span class="quick-icon">💡</span>
+                    <div>
+                        <span class="quick-label">Lights</span>
+                        <strong id="homeLights">OFF</strong>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SENSORS -->
+        <h2 class="section-title">Environmental Sensors</h2>
+
+        <div class="sensor-grid">
+
+            <div class="sensor-card">
+                <div class="sensor-icon">🌡️</div>
+                <h3>Temperature</h3>
+                <div class="sensor-value" id="temperature">-- °C</div>
+            </div>
+
+            <div class="sensor-card">
+                <div class="sensor-icon">💧</div>
+                <h3>Humidity</h3>
+                <div class="sensor-value" id="humidity">-- %</div>
+            </div>
+
+            <div class="sensor-card">
+                <div class="sensor-icon">☀️</div>
+                <h3>Light Level</h3>
+                <div class="sensor-value" id="light">--</div>
+            </div>
+
+        </div>
+
+
+        <!-- DEVICE CONTROLS -->
+        <h2 class="section-title">Device Controls</h2>
+
+        <div class="device-grid">
+
+            <div class="device-card" id="fanCard">
+                <div class="device-icon">🌀</div>
+                <div class="device-info">
+                    <h3>Fan</h3>
+                    <p id="fanStatus">OFF</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="fanSwitch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="device-card" id="lightsCard">
+                <div class="device-icon">💡</div>
+                <div class="device-info">
+                    <h3>Lights</h3>
+                    <p id="lightsStatus">OFF</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="lightsSwitch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+        </div>
+
+
+        <!-- LIVE CHARTS -->
+        <h2 class="section-title">Live Sensor Monitoring</h2>
+
+        <div class="charts-grid">
+
+            <div class="chart-card">
+                <h3>🌡️ Temperature</h3>
+                <div class="chart-container"><canvas id="temperatureChart"></canvas></div>
+            </div>
+
+            <div class="chart-card">
+                <h3>💧 Humidity</h3>
+                <div class="chart-container"><canvas id="humidityChart"></canvas></div>
+            </div>
+
+            <div class="chart-card">
+                <h3>☀️ Light Level</h3>
+                <div class="chart-container"><canvas id="lightChart"></canvas></div>
+            </div>
+
+        </div>
+
+
+        <!-- SYSTEM INFORMATION -->
+        <h2 class="section-title">System Information</h2>
+
+        <div class="system-card">
+
+            <div class="system-row">
+                <span class="system-label">Firebase Status</span>
+                <span class="system-value" id="firebaseStatus">Connecting...</span>
+            </div>
+
+            <div class="system-row">
+                <span class="system-label">Last Sensor Update</span>
+                <span class="system-value" id="lastUpdate">--</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>customrodrick@2026 projects</strong>
+        <span>• SMART NYUMBA IoT System</span>
+    </footer>
+
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- SMART NYUMBA JAVASCRIPT (must be a module) -->
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
